@@ -29,6 +29,7 @@ import zipfile
 # Dependency imports
 
 import numpy as np
+from PIL import Image
 from six.moves import cPickle
 from six.moves import xrange  # pylint: disable=redefined-builtin
 from six.moves import zip  # pylint: disable=redefined-builtin
@@ -202,6 +203,30 @@ def cifar10_generator(tmp_dir, training, how_many, start_from=0):
     all_labels.extend([labels[j] for j in xrange(num_images)])
   return image_generator(all_images[start_from:start_from + how_many],
                          all_labels[start_from:start_from + how_many])
+
+
+def own_data_generator(train_dir):
+  all_images, all_labels = [], []
+  size = 128, 128
+  label_index = 0
+  for filename in os.listdir(train_dir):
+    print (filename)
+    print (label_index)
+    image_class = os.path.join(train_dir, filename)
+    for img_name in os.listdir(image_class):
+      print (img_name)
+      im = Image.open(img_name)
+      im.thumbnail(size, Image.ANTIALIAS)
+      im = (np.array(im))
+      im = im.flatten()
+      im = im[:34347]
+      im = im.reshape(3,107,107)
+      im =  np.squeeze(im).transpose(1,2,0)
+      all_images.append(im)
+      all_labels.append(label_index)
+    label_index += 1
+
+
 
 
 # URLs and filenames for MSCOCO data.
