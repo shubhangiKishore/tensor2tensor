@@ -225,7 +225,7 @@ def own_data_generator(train_dir):
       all_images.append(im)
       all_labels.append(label_index)
     label_index += 1
-
+  return image_generator(all_images, all_labels)
 
 
 

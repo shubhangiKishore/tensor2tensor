@@ -167,6 +167,12 @@ _SUPPORTED_PROBLEM_GENERATORS = {
     "image_cifar10_test": (
         lambda: image.cifar10_generator(FLAGS.tmp_dir, True, 50000),
         lambda: image.cifar10_generator(FLAGS.tmp_dir, False, 10000)),
+    "image_own_data_tune": (
+        lambda: image.own_data_generator(FLAGS.tmp_dir),
+        lambda : image.own_data_generator(FLAGS.tmp_dir)),
+    "image_own_data_test": (
+        lambda: image.own_data_generator(FLAGS.tmp_dir),
+        lambda : image.own_data_generator(FLAGS.tmp_dir)),
     "image_mscoco_characters_tune": (
         lambda: image.mscoco_generator(FLAGS.tmp_dir, True, 70000),
         lambda: image.mscoco_generator(FLAGS.tmp_dir, True, 10000, 70000)),
