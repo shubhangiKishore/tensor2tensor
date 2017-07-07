@@ -207,7 +207,7 @@ def cifar10_generator(tmp_dir, training, how_many, start_from=0):
 
 def own_data_generator(train_dir):
   from PIL import Image
-  train_dir = '/home/sk/Downloads/sample'
+  # train_dir = '/home/sk/Downloads/sample'
   all_images, all_labels = [], []
   size = 32, 32
   label_index = 0

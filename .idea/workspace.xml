@@ -20,8 +20,8 @@
       <file leaf-file-name="image.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tensor2tensor/data_generators/image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="225" column="14" lean-forward="true" selection-start-line="225" selection-start-column="14" selection-end-line="225" selection-end-column="14" />
+            <state relative-caret-position="408">
+              <caret line="231" column="4" lean-forward="false" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
               <folding>
                 <element signature="e#620#658#0" expanded="true" />
               </folding>
@@ -359,8 +359,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tensor2tensor/data_generators/image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="225" column="14" lean-forward="true" selection-start-line="225" selection-start-column="14" selection-end-line="225" selection-end-column="14" />
+        <state relative-caret-position="408">
+          <caret line="231" column="4" lean-forward="false" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
           <folding>
             <element signature="e#620#658#0" expanded="true" />
           </folding>
