@@ -207,14 +207,14 @@ def cifar10_generator(tmp_dir, training, how_many, start_from=0):
 
 def own_data_generator(train_dir):
   from PIL import Image
-  x = '/home/sk/Downloads/sample'
+  train_dir = '/home/sk/Downloads/sample'
   all_images, all_labels = [], []
   size = 32, 32
   label_index = 0
-  for filename in os.listdir(x):
+  for filename in os.listdir(train_dir):
     print(filename)
     print(label_index)
-    image_class = os.path.join(x, filename)
+    image_class = os.path.join(train_dir, filename)
     for img_name in os.listdir(image_class):
       print(img_name)
       path_x = os.path.join(image_class, img_name)
