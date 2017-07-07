@@ -41,7 +41,7 @@ from tensor2tensor.data_generators import ptb
 from tensor2tensor.data_generators import snli
 from tensor2tensor.data_generators import wmt
 from tensor2tensor.data_generators import wsj_parsing
-
+from PIL import Image
 import tensorflow as tf
 
 flags = tf.flags

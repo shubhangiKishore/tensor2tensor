@@ -206,23 +206,29 @@ def cifar10_generator(tmp_dir, training, how_many, start_from=0):
 
 
 def own_data_generator(train_dir):
-  train_dir = '/home/sk/Downloads/sample'
+  from PIL import Image
+  x = '/home/sk/Downloads/sample'
   all_images, all_labels = [], []
-  size = 128, 128
+  size = 32, 32
   label_index = 0
-  for filename in os.listdir(train_dir):
-    print (filename)
-    print (label_index)
-    image_class = os.path.join(train_dir, filename)
+  for filename in os.listdir(x):
+    print(filename)
+    print(label_index)
+    image_class = os.path.join(x, filename)
     for img_name in os.listdir(image_class):
-      print (img_name)
-      im = Image.open(img_name)
+      print(img_name)
+      path_x = os.path.join(image_class, img_name)
+      print(path_x)
+      im = Image.open(path_x)
       im.thumbnail(size, Image.ANTIALIAS)
       im = (np.array(im))
+      im.shape
       im = im.flatten()
-      im = im[:34347]
-      im = im.reshape(3,107,107)
-      im =  np.squeeze(im).transpose(1,2,0)
+      im.shape
+      im = np.pad(im, 1024, 'constant')
+      im = im[:3072]
+      im = im.reshape(3, 32, 32)
+      im = np.squeeze(im).transpose(1, 2, 0)
       all_images.append(im)
       all_labels.append(label_index)
     label_index += 1
