@@ -173,7 +173,7 @@ def _get_cifar10(directory):
   tarfile.open(path, "r:gz").extractall(directory)
 
 
-def cifar10_generator(tmp_dir, training, how_many, start_from=0):
+def cifar10_generator(train_dir, training):
   """Image generator for CIFAR-10.
 
   Args:
@@ -185,27 +185,6 @@ def cifar10_generator(tmp_dir, training, how_many, start_from=0):
   Returns:
     An instance of image_generator that produces CIFAR-10 images and labels.
   """
-  _get_cifar10(tmp_dir)
-  data_files = _CIFAR10_TRAIN_FILES if training else _CIFAR10_TEST_FILES
-  all_images, all_labels = [], []
-  for filename in data_files:
-    path = os.path.join(tmp_dir, _CIFAR10_PREFIX, filename)
-    with tf.gfile.Open(path, "r") as f:
-      data = cPickle.load(f)
-    images = data["data"]
-    num_images = images.shape[0]
-    images = images.reshape((num_images, 3, _CIFAR10_IMAGE_SIZE,
-                             _CIFAR10_IMAGE_SIZE))
-    all_images.extend([
-        np.squeeze(images[j]).transpose((1, 2, 0)) for j in xrange(num_images)
-    ])
-    labels = data["labels"]
-    all_labels.extend([labels[j] for j in xrange(num_images)])
-  return image_generator(all_images[start_from:start_from + how_many],
-                         all_labels[start_from:start_from + how_many])
-
-
-def own_data_generator(train_dir):
   from PIL import Image
   train_dir = '/home/gauthaam/shubhangi/sample'
   all_images, all_labels = [], []
